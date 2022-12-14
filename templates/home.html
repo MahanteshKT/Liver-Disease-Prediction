@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% 
+    
+    block content %}
+    
+    
+<form  method="post">
+    <!-- Age,Gender,Total_Bilirubin,Direct_Bilirubin,Alkaline_Phosphotase,Alamine_Aminotransferase,Aspartate_Aminotransferase,
+        Total_Protiens,Albumin,Albumin_and_Globulin_Ratio,Dataset -->
+        <div class="inputCont" id="inputCont">
+        <input type="number"  name="Age" id="input" class="input1" placeholder="Age" step="any">
+        <input type="number"  name="Gender" id="input"  class="input2" placeholder="Gender" step="any">
+        <input type="number"  name="Total_Bilirubin" id="input" class="input3" placeholder="Total_Bilirubin" step="any">
+        <input type="number" name="Direct_Bilirubin" id="input" class="input4" placeholder="Direct_Bilirubin" step="any" >
+        <input type="number"  name="Alkaline_Phosphotase" id="input" class="input5" placeholder="Alkaline_Phosphotase"  step="any">
+        <input type="number"  name="Alamine_Aminotransferase" id="input" class="input6" placeholder="Alamine_Aminotransferase" step="any" >
+        <input type="number"  name="Aspartate_Aminotransferase" id="input" class="input7" placeholder="Aspartate_Aminotransferase" step="any" >
+        <input type="number"  name="Total_Protiens" id="input" class="input8" placeholder="Total_Protiens" step="any" >
+        <input type="number"  name="Albumin" id="input" class="input9" placeholder="Albumin" step="any">
+        <input type="number"  name="Albumin_and_Globulin_Ratio" id="input" class="input10" placeholder="Albumin_and_Globulin_Ratio" step="any">
+        <!-- <input type="number" name="" id="" > -->
+        <button type="submit" id="button" class="button">Check</button>   
+      
+
+
+    </div>
+    <!-- <input type="button" value="submit"> -->
+    
+     
+</form>
+<div class="build"><a href="{{url_for('build_modell')}}">build</a>
+    <!-- <link href="" >Build</link></div> -->
+</div>
+<div class="text">
+    {% if context['total'] %}
+        <h1 class="">{{context['total']}}</h1>    
+    {% else %}
+        <h1></h1>
+    {% endif %}
+    {% if context['msg'] %} 
+    <h1 class="{{context['color']}}">{{context['msgs']}}</h1>
+    {% for msgg in context['msg'] %}
+    <p>{{msgg}}</p>
+    <!-- <br/> -->
+    {%  else %}
+        <h1>no result</h1>
+        
+    {% endfor %}
+    {% endif %}
+    
+</div>
+
+{% endblock %}

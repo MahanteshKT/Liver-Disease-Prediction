@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+            {{context['title']}}
+            
+    </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>LIVER DISEASE PREDICTION</h1>
+        <div class="explain"><button id="btn" class="btn">info</button></div>
+    </div>
+    <div class="sidebar" id="sidebar"><span id="close" class="close">&#10006</span>
+         <div class="content">
+            <div class="content-info">
+                <div class="heading">Total_bilirubin</div>
+                <div class="info">
+                    <span>range[0.4-75]</span>
+                    <p>This is a blood test that measures the amount of a substance called bilirubin. This test is used to find out how well your liver is working. It is often part of a panel of tests that measure liver function. A small amount of bilirubin in your blood is normal, but a high level may be a sign of liver disease.</p>
+                    
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Direct Bilirubin</div>
+                <div class="info">
+                    <span>Range[0.1-19.7]</span>
+                    <p>Normal results for a bilirubin test are 1.2 milligrams per deciliter (mg/dL) of total bilirubin for adults, and usually 1 mg/dL for those under 18. Normal results for direct bilirubin are generally 0.3 mg/dL</p>
+                </div>
+            </div>
+            
+            <div class="content-info">
+                <div class="heading">Alkaline_Phosphotase</div>
+                <div class="info">
+                    <spna>Range[63-2110]</spna>
+                    <p>The ALP test may be done as part of a routine liver panel, a group of blood tests that looks at how well your liver is working.
+                        ALP results are reported in units per liter (U/L). For men and women older than age 18, an ALP level between 44 and 147 U/L is considered normal. The normal range for children is higher than that for adults, especially for infants and teens because their bones are growing rapidly.
+
+
+                    </p>
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Alamine_Aminotransferase</div>
+                <div class="info">
+                    <span>Range[10-2000]</span>
+                    <p>his blood test is used to diagnose liver damage. Aspartate transaminase (AST) is an enzyme that is released when your liver or muscles are damaged. Although AST is found mainly in your liver and heart, AST can also be found in small amounts in other muscles.</p>
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Aspartate_Aminotransferase</div>
+                <div class="info">
+                    <span>Range[10-4929]</span>
+                    <p>This blood test is used to diagnose liver damage. Aspartate transaminase (AST) is an enzyme that is released when your liver or muscles are damaged. Although AST is found mainly in your liver and heart, AST can also be found in small amounts in other muscles.   
+                        Results are given in units per liter (units/L). Normal ranges for AST are:Men: 14 to 20 units/L
+
+                        Women: 10 to 36 units/L
+                    </p>
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Total_Protiens</div>
+                <div class="info">
+                    <span>Range[2.7-9.6]</span>
+                    <p>This test provides information about the amount of albumin you have compared with globulin. This comparison is called the A/G ratio. This test is useful when your healthcare provider suspects you have liver or kidney disease.
+                        Certain diseases tend to lower your level of albumin and raise your level of one or more types of globulins. A normal range for total protein is 60 to 80 grams per liter (g/L). A normal range of albumin is 35 to 52 g/L. The normal range for globulins varies by specific type.
+                        <br/>
+                        If your protein level is low, you may have a liver or kidney problem.
+                        <br/>
+                        If your protein level is high, you may have a gastrointestinal problem.
+                    </p>
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Albumin</div>
+                <div class="info">
+                    <span>Range[0.9-5.5]</span>
+                    <p>This test can help diagnose, evaluate, and watch kidney and liver conditions. When your kidneys start to fail, albumin starts to leak into your urine. This causes a low albumin level in your blood.
+                      <br/>  Results are given in grams per deciliter (g/dL). A normal albumin range is 3.4 to 5.4 g/dL.
+
+                        <br/>If you have a lower albumin level, you may have malnutrition. It can also mean that you have liver disease, kidney disease, or an inflammatory disease.  
+
+                        <br/>Higher albumin levels may be caused by acute infections, burns, and stress from surgery or a heart attack.
+                    </p>
+                </div>
+            </div>
+            <div class="content-info">
+                <div class="heading">Albumin_and_Globulin_Ratio</div>
+                <div class="info">
+                   <span> Range[0.3-2.8]</span>
+                   <p>This test provides information about the amount of albumin you have compared with globulin. This comparison is called the A/G ratio. This test is useful when your healthcare provider suspects you have liver or kidney disease. 
+                    <br/>
+                    Low or high A/G ratios can help your healthcare providers identify other health problems, including certain cancers, autoimmune diseases, or some genetic disorders. 
+
+                   </p>
+                </div>
+            </div>
+         </div> 
+        </div>
+    <div class="main">
+        <div class="message" id="message" >
+            {% with messages =get_flashed_messages(with_categories=true) %}
+                {%if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert {{category}}">
+                            {{message}}
+                            <div class="closelogo" id="closelogo" ><span>&#10006</span></div>
+                        </div>
+                        
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    
+        </div>
+    
+        {% block content %}
+        <h1>Index</h1>
+    {% endblock %}
+    </div>
+    <script src="{{url_for('static',filename='index.js')}}"></script>
+</body>
+</html>
